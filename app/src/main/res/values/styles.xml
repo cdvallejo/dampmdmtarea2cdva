@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema para RecyclerView (no admite directamente en su xml el modo style="") -->
+    <style name="RecyclerViewThemeOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <!-- Fondo y padding general -->
+        <item name="android:background">#2E7D32</item>
+        <item name="android:padding">16dp</item>
+
+        <!-- Configuración de texto (se aplica a elementos hijos) -->
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">#FFFFFF </item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Estilo para las CardItemS-->
+    <style name="CardItemStyle">
+        <item name="android:background">#2E7D32</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Estilo para los TextViews en las fichas -->
+    <style name="CharacterTextStyle">
+        <item name="android:background">#A5D6A7</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">#2E7D32</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <!-- Estilo para los botones en las fichas -->
+    <style name="FichaButtonStyle">
+        <item name="android:backgroundTint">#03DAC5</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+    </style>
+</resources>
