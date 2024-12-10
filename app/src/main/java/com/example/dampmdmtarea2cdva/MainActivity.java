@@ -1,10 +1,15 @@
 package com.example.dampmdmtarea2cdva;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,27 +20,40 @@ import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
+
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // Inflar el layout con ViewBinding
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        EdgeToEdge.enable(this);
+
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Definir el LayoutManager, en este caso un LinearLayoutManager para la lista
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Configura el NavController
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        NavigationUI.setupActionBarWithNavController(this, navController);
 
-        // Lista de items
-        List<CharacterData> characters = Arrays.asList(
-                new CharacterData(R.drawable.mario, "Mario", "Fontanero y héroe del Reino Champiñón", "Es capaz de saltar muy alto"),
-                new CharacterData(R.drawable.luigi, "Luigi", "Hermano de Mario", "Aunque es un poco miedica, salta también muy alto"),
-                new CharacterData(R.drawable.peach, "Peach", "Princesa del Reino Champiñón", "Posee habilidades mágicas"),
-                new CharacterData(R.drawable.toad, "Toad", "Consejero de la princesa Peach", "Aunque no lo pareca, tiene una fuerza extraordinaria")
-        );
-
-        // Asignar el adaptador al RecyclerView
-        binding.recyclerView.setAdapter(new RecyclerViewAdapter(characters));
     }
+
+    // Método para manejar el clic en un personaje
+    public void gameClicked(CharacterData character, View view) {
+        // Crear un Bundle para pasar los datos al CharacterDetailFragment
+        Bundle bundle = new Bundle();
+        bundle.putInt("image", character.getImage()); // Pasa la imagen del personaje
+        bundle.putString("name", character.getName()); // Pasa el nombre del personaje
+        bundle.putString("description", character.getDescription()); // Pasa la descripción del personaje
+        bundle.putString("skill", character.getSkills()); // Pasa las habilidades del personaje
+
+        // Navegar al GameDetailFragment con el Bundle
+        Navigation.findNavController(view).navigate(R.id.characterDetailFragment, bundle);
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        // Utiliza el método navigateUp del NavController
+        return navController.navigateUp() || super.onSupportNavigateUp();
+    }
+
 }
