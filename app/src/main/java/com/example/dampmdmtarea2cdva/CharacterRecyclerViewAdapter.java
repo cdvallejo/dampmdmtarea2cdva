@@ -2,6 +2,7 @@ package com.example.dampmdmtarea2cdva;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -39,10 +40,18 @@ public class CharacterRecyclerViewAdapter extends RecyclerView.Adapter<Character
     public void onBindViewHolder(@NonNull CharacterViewHolder holder, int position) {
         CharacterData currentCharacter = this.characters.get(position);
         holder.bind(currentCharacter);
+
+    //    Manejar el evento de clic
+        holder.itemView.setOnClickListener(view -> itemClicked(currentCharacter, view));
     }
 
     @Override
     public int getItemCount() {
         return characters.size();
+    }
+
+    private void itemClicked(CharacterData currentGame, View view) {
+        // Llama a la función gameClicked de MainActivity, pasando la vista
+        ((MainActivity) context).gameClicked(currentGame, view);
     }
 }

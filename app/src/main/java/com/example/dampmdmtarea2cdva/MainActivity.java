@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("description", character.getDescription()); // Pasa la descripción del personaje
         bundle.putString("skill", character.getSkills()); // Pasa las habilidades del personaje
 
-        // Navegar al GameDetailFragment con el Bundle
+        // Navegar al CharacterDetailFragment con el Bundle
         Navigation.findNavController(view).navigate(R.id.characterDetailFragment, bundle);
     }
     @Override
