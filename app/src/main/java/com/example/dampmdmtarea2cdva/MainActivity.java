@@ -1,8 +1,12 @@
 package com.example.dampmdmtarea2cdva;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,4 +60,26 @@ public class MainActivity extends AppCompatActivity {
         return navController.navigateUp() || super.onSupportNavigateUp();
     }
 
+    // Inflar el menú en la ActionBar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    // Manejar la selección de elementos del menú
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            Toast.makeText(
+                    this,
+                    "Aplicación de Carlos Vallejo para la Tarea 2 de PMDM",
+                    Toast.LENGTH_LONG
+            ).show();
+            return true;
+        } else {
+                return super.onOptionsItemSelected(item);
+            }
+        }
 }

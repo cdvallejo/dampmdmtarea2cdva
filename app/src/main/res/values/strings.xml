@@ -2,5 +2,6 @@
     <string name="app_name">dam.pmdm.tarea2cdva</string>
     <string name="lista_de_personajes">Lista de personajes</string>
     <string name="detalles_del_personaje">Detalles del personaje</string>
+    <string name="acerca_de">Acerca de</string>
 
 </resources>

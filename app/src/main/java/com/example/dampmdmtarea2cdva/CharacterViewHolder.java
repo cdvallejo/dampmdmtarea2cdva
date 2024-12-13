@@ -20,8 +20,6 @@ public class CharacterViewHolder extends RecyclerView.ViewHolder {
     public void bind (CharacterData character) {
         binding.image.setImageResource(character.getImage());
         binding.name.setText(character.getName());
-        binding.description.setText(character.getDescription());
-        binding.skills.setText(character.getSkills());
         binding.executePendingBindings(); //Asegura que se apliquen los cambios de inmediato
     }
 }

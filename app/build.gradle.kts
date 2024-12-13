@@ -41,6 +41,7 @@ android {
 
     /* Incluimos las dependencias re recyclerview, cardview y las dos de navegación que us Lindsay */
 dependencies {
+    implementation(libs.core.splashscreen)
     implementation(libs.recyclerview)
     implementation(libs.cardview)
     implementation(libs.navigation.fragment.ktx)
