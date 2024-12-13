@@ -1,7 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Variables generales -->
     <string name="app_name">dam.pmdm.tarea2cdva</string>
-    <string name="lista_de_personajes">Lista de personajes</string>
-    <string name="detalles_del_personaje">Detalles del personaje</string>
-    <string name="acerca_de">Acerca de</string>
+    <string name="characters_list">Lista de personajes</string>
+    <string name="characters_detail">Detalles del personaje</string>
+    <string name="about">Acerca de</string>
+    <string name="label">Personajes de Nintendo</string>
+
+    <!-- Variables menu -->
+    <string name="settings">Settings</string>
+    <string name="change_language">Cambiar idioma: inglés</string>
+    <string name="about_text">Aplicación de Carlos Vallejo para la Tarea 2 de PMDM</string>
+
+    <!-- Variables del constructor de personajes -->
+
+    <string name="character_mario_name">Mario</string>
+    <string name="character_mario_description">Fontanero y héroe a tiempo parcial del Reino Champiñón</string>
+    <string name="character_mario_skill">Salta muy alto</string>
+
+    <string name="character_luigi_name">Luigi</string>
+    <string name="character_luigi_description">Fontanero, hermano de Mario</string>
+    <string name="character_luigi_skill">Aunque es muy miedica también salta muy alto</string>
+
+    <string name="character_peach_name">Peach</string>
+    <string name="character_peach_description">Princesa del Reino Champiñón</string>
+    <string name="character_peach_skill">Posee habilidades mágicas</string>
+
+    <string name="character_toad_name">Toad</string>
+    <string name="character_toad_description">Consejero de la princesa Peach</string>
+    <string name="character_toad_skill">Tiene una fuerza extraordinaria</string>
 
 </resources>

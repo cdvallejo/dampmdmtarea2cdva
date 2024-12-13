@@ -50,7 +50,7 @@ public class CharacterDetailFragment extends Fragment {
         super.onStart();
         // Cambia el título del ActionBar
         if (getActivity() != null) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.detalles_del_personaje);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.characters_detail);
         }
     }
 }

@@ -41,40 +41,39 @@ public class CharacterListFragment extends Fragment {
         adapter = new CharacterRecyclerViewAdapter(characters, getActivity());
         binding.charactersRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.charactersRecyclerview.setAdapter(adapter);
-
-
     }
 
-    // Método para cargar juegos (puedes implementar tu lógica aquí)
+    // Método para cargar personajes (multiidioma)
     private void loadCharacters() {
-        characters = new ArrayList<CharacterData>();
-        // Llenar la lista con datos de videojuegos
+        characters = new ArrayList<>();
+
+        // Llenar la lista con datos de videojuegos usando recursos de strings
         characters.add(new CharacterData(
                 R.drawable.mario,
-                "Mario",
-                "Fontanero y héroe a tiempo parcial del Reino Champiñón",
-                "Salta muy alto"
+                getString(R.string.character_mario_name),
+                getString(R.string.character_mario_description),
+                getString(R.string.character_mario_skill)
         ));
 
         characters.add(new CharacterData(
                 R.drawable.luigi,
-                "Luigi",
-                "Fontanero, hermano de Mario",
-                "Aunque es muy miedica también salta muy alto"
+                getString(R.string.character_luigi_name),
+                getString(R.string.character_luigi_description),
+                getString(R.string.character_luigi_skill)
         ));
 
         characters.add(new CharacterData(
                 R.drawable.peach,
-                "Peach",
-                "Princesa del Reino Champiñón",
-                "Posee habilidades mágicas"
+                getString(R.string.character_peach_name),
+                getString(R.string.character_peach_description),
+                getString(R.string.character_peach_skill)
         ));
 
         characters.add(new CharacterData(
                 R.drawable.toad,
-                "Toad",
-                "Consejero de la princesa Peach",
-                "Tiene una fuerza extraordinaria"
+                getString(R.string.character_toad_name),
+                getString(R.string.character_toad_description),
+                getString(R.string.character_toad_skill)
         ));
     }
 
@@ -84,7 +83,7 @@ public class CharacterListFragment extends Fragment {
         super.onStart();
         // Cambia el título del ActionBar
         if (getActivity() != null) {
-            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.lista_de_personajes);
+            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.characters_list);
         }
     }
 }

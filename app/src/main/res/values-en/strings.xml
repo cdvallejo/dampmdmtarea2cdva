@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Variables generales (inglés)-->
+    <string name="app_name">dam.pmdm.tarea2cdva</string>
+    <string name="characters_list">Character\'s list</string>
+    <string name="characters_detail">Character\'s detail</string>
+    <string name="about">About</string>
+    <string name="label">Nintendo\'s characters</string>
+
+    <!-- Variables del menú (inglés)-->
+    <string name="settings">Settings</string>
+    <string name="change_language">Change Language: Spanish</string>
+    <string name="about_text">App made by Carlos Vallejo for Project 2 - PMDM</string>
+
+    <!-- Variables del constructor de personajes (inglés) -->
+
+    <string name="character_mario_name">Mario</string>
+    <string name="character_mario_description">Plumber and part-time hero of the Mushroom Kingdom</string>
+    <string name="character_mario_skill">Jumps very high</string>
+
+    <string name="character_luigi_name">Luigi</string>
+    <string name="character_luigi_description">Plumber, Mario\'s brother</string>
+    <string name="character_luigi_skill">Although he\'s very cowardly, he also jumps very high</string>
+
+    <string name="character_peach_name">Peach</string>
+    <string name="character_peach_description">Princess of the Mushroom Kingdom</string>
+    <string name="character_peach_skill">Possesses magical abilities</string>
+
+    <string name="character_toad_name">Toad</string>
+    <string name="character_toad_description">Advisor to Princess Peach</string>
+    <string name="character_toad_skill">Has extraordinary strength</string>
+
+
+</resources>
