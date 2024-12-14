@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.dampmdmtarea2cdva.databinding.CharacterDetailFragmentBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class CharacterDetailFragment extends Fragment {
@@ -42,6 +43,10 @@ public class CharacterDetailFragment extends Fragment {
             binding.name.setText(name);
             binding.description.setText(description);
             binding.skills.setText(skills);
+
+            // Mostrar el Snackbar de personaje seleccionado
+            String message = getString(R.string.character_selected, name);
+            Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG).show();
         }
     }
 

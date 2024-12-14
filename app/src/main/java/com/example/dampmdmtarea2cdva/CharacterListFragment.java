@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.dampmdmtarea2cdva.databinding.CharacterListFragmentBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -41,6 +42,9 @@ public class CharacterListFragment extends Fragment {
         adapter = new CharacterRecyclerViewAdapter(characters, getActivity());
         binding.charactersRecyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.charactersRecyclerview.setAdapter(adapter);
+
+        // Mostrar el Snackbar de bienvenida cuando se carga la lista
+        Snackbar.make(binding.getRoot(), R.string.welcome_message, Snackbar.LENGTH_LONG).show();
     }
 
     // Método para cargar personajes (multiidioma)
@@ -75,8 +79,8 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.character_toad_description),
                 getString(R.string.character_toad_skill)
         ));
-    }
 
+    }
 
     @Override
     public void onStart() {

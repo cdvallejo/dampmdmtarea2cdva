@@ -7,7 +7,8 @@
     <string name="characters_detail">Character\'s detail</string>
     <string name="about">About</string>
     <string name="label">Nintendo\'s characters</string>
-
+    <string name="welcome_message">¡Welcome to Mario Bros World!</string>
+    <string name="character_selected">You have selected %s</string>
     <!-- Variables del menú (inglés)-->
     <string name="settings">Settings</string>
     <string name="change_language">Change Language: Spanish</string>
@@ -30,6 +31,7 @@
     <string name="character_toad_name">Toad</string>
     <string name="character_toad_description">Advisor to Princess Peach</string>
     <string name="character_toad_skill">Has extraordinary strength</string>
+    <string name="about_info">Info</string>
 
 
 </resources>
