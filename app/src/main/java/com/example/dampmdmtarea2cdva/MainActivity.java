@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,10 +21,26 @@ import com.example.dampmdmtarea2cdva.databinding.ActivityMainBinding;
 
 import java.util.Locale;
 
+/**
+ * Actividad principal que maneja la navegación entre fragmentos y la configuración de la interfaz de usuario.
+ * Esta actividad maneja el cambio de idioma y la interacción con los elementos del menú.
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * Controlador de navegación utilizado para gestionar la navegación entre fragmentos.
+     */
     private NavController navController;
 
+    private ActionBarDrawerToggle toggle;
+    private Object binding;
+
+    /**
+     * Se llama cuando la actividad es creada.
+     * Inicializa la interfaz de usuario, configura el NavController y detecta el idioma del dispositivo.
+     *
+     * @param savedInstanceState El estado guardado de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,13 +52,24 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Configura el NavController
+        // Configura el NavController para la navegación
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController);
+
+        // Configurar el icono del menú en la ActionBar
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
 
-    // Método para manejar el clic en un personaje
+    /**
+     * Maneja el clic en un personaje de la lista y navega al detalle del personaje.
+     * Pasa los datos del personaje al fragmento de detalles mediante un Bundle.
+     *
+     * @param character El objeto que contiene los datos del personaje seleccionado.
+     * @param view La vista sobre la que se hizo clic.
+     */
     public void gameClicked(CharacterData character, View view) {
         // Crear un Bundle para pasar los datos al CharacterDetailFragment
         Bundle bundle = new Bundle();
@@ -54,13 +82,22 @@ public class MainActivity extends AppCompatActivity {
         Navigation.findNavController(view).navigate(R.id.characterDetailFragment, bundle);
     }
 
+    /**
+     * Permite la navegación hacia atrás en el ActionBar.
+     *
+     * @return true si la navegación fue exitosa, false si no.
+     */
     @Override
     public boolean onSupportNavigateUp() {
-        // Utiliza el método navigateUp del NavController
         return navController.navigateUp() || super.onSupportNavigateUp();
     }
 
-    // Inflar el menú en la ActionBar
+    /**
+     * Infla el menú en la ActionBar de la actividad.
+     *
+     * @param menu El objeto del menú que será inflado.
+     * @return true si el menú fue inflado correctamente.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -68,7 +105,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    // Manejar la selección de elementos del menú
+    /**
+     * Maneja la selección de un ítem del menú en la ActionBar.
+     *
+     * @param item El ítem del menú seleccionado.
+     * @return true si el ítem fue manejado correctamente.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_about) {
@@ -86,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Cambia el idioma de la aplicación entre español e inglés.
+     * Actualiza la configuración de idioma y reinicia la actividad para aplicar el cambio.
+     */
     private void changeLanguage() {
         // Obtener el idioma actual del dispositivo
         Locale currentLocale = getResources().getConfiguration().locale;

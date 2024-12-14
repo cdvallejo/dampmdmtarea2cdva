@@ -7,9 +7,17 @@
     <fragment
         android:id="@+id/characterListFragment"
         android:name="com.example.dampmdmtarea2cdva.CharacterListFragment"
-        android:label="CharacterListFragment" />
+        android:label="CharacterListFragment" >
+        <action
+            android:id="@+id/action_characterListFragment_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/characterDetailFragment"
         android:name="com.example.dampmdmtarea2cdva.CharacterDetailFragment"
-        android:label="CharacterDetailFragment" />
+        android:label="CharacterDetailFragment" >
+        <action
+            android:id="@+id/action_characterDetailFragment_to_characterListFragment"
+            app:destination="@id/characterListFragment" />
+    </fragment>
 </navigation>

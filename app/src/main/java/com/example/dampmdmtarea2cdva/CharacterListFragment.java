@@ -16,12 +16,35 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
+/**
+ * Fragmento que muestra una lista de personajes, con sus imágenes, nombres, descripciones y habilidades.
+ * También muestra un mensaje de bienvenida cuando se carga la lista.
+ */
 public class CharacterListFragment extends Fragment {
 
-    private CharacterListFragmentBinding binding; // Binding para el layout
-    private ArrayList<CharacterData> characters; // Lista de juegos
-    private CharacterRecyclerViewAdapter adapter; // Adaptador del RecyclerView
+    /**
+     * Binding que permite acceder a los elementos del layout del fragmento.
+     */
+    private CharacterListFragmentBinding binding;
 
+    /**
+     * Lista que contiene los datos de los personajes.
+     */
+    private ArrayList<CharacterData> characters;
+
+    /**
+     * Adaptador para el RecyclerView que muestra los personajes.
+     */
+    private CharacterRecyclerViewAdapter adapter;
+
+    /**
+     * Método llamado para crear la vista del fragmento. Infla el layout del fragmento utilizando el binding.
+     *
+     * @param inflater           Inflador de vistas.
+     * @param container          Contenedor al que se agregará la vista.
+     * @param savedInstanceState Estado guardado del fragmento.
+     * @return Vista inflada para el fragmento.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -31,12 +54,19 @@ public class CharacterListFragment extends Fragment {
         return binding.getRoot();
     }
 
+    /**
+     * Método llamado después de que la vista ha sido creada. Inicializa la lista de personajes, configura el RecyclerView
+     * y muestra un mensaje de bienvenida utilizando un Snackbar.
+     *
+     * @param view               Vista del fragmento.
+     * @param savedInstanceState Estado guardado del fragmento.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Inicializa la lista de juegos
-        loadCharacters(); // Cargar los juegos (puedes implementar esta función para obtener datos)
+        // Inicializa la lista de personajes
+        loadCharacters();
 
         // Configurar el RecyclerView
         adapter = new CharacterRecyclerViewAdapter(characters, getActivity());
@@ -47,11 +77,14 @@ public class CharacterListFragment extends Fragment {
         Snackbar.make(binding.getRoot(), R.string.welcome_message, Snackbar.LENGTH_LONG).show();
     }
 
-    // Método para cargar personajes (multiidioma)
+    /**
+     * Método que carga los personajes en la lista utilizando recursos de strings para obtener la información
+     * de cada personaje (nombre, descripción y habilidades).
+     */
     private void loadCharacters() {
         characters = new ArrayList<>();
 
-        // Llenar la lista con datos de videojuegos usando recursos de strings
+        // Llenar la lista con datos de personajes
         characters.add(new CharacterData(
                 R.drawable.mario,
                 getString(R.string.character_mario_name),
@@ -79,9 +112,11 @@ public class CharacterListFragment extends Fragment {
                 getString(R.string.character_toad_description),
                 getString(R.string.character_toad_skill)
         ));
-
     }
 
+    /**
+     * Método llamado cuando el fragmento se ha iniciado. Cambia el título del ActionBar para reflejar la lista de personajes.
+     */
     @Override
     public void onStart() {
         super.onStart();

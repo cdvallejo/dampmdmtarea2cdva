@@ -14,10 +14,24 @@ import com.example.dampmdmtarea2cdva.databinding.CharacterDetailFragmentBinding;
 import com.google.android.material.snackbar.Snackbar;
 
 
+/**
+ * Fragmento que muestra los detalles de un personaje seleccionado, incluyendo su imagen, nombre, descripción y habilidades.
+ */
 public class CharacterDetailFragment extends Fragment {
 
+    /**
+     * Binding que permite acceder a los elementos del layout del fragmento.
+     */
     private CharacterDetailFragmentBinding binding;
 
+    /**
+     * Método llamado para crear la vista del fragmento. Infla el layout del fragmento utilizando el binding.
+     *
+     * @param inflater           Inflador de vistas.
+     * @param container          Contenedor al que se agregará la vista.
+     * @param savedInstanceState Estado guardado del fragmento.
+     * @return Vista inflada para el fragmento.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -26,6 +40,13 @@ public class CharacterDetailFragment extends Fragment {
         return binding.getRoot();
     }
 
+    /**
+     * Método llamado después de que la vista ha sido creada. Obtiene los datos del argumento que inició este fragmento y
+     * asigna esos datos a los componentes correspondientes en la vista.
+     *
+     * @param view               Vista del fragmento.
+     * @param savedInstanceState Estado guardado del fragmento.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -50,6 +71,9 @@ public class CharacterDetailFragment extends Fragment {
         }
     }
 
+    /**
+     * Método llamado cuando el fragmento se ha iniciado. Cambia el título del ActionBar para reflejar el detalle del personaje.
+     */
     @Override
     public void onStart() {
         super.onStart();
